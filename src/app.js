@@ -2,7 +2,6 @@ var express = require('express');
 var app = express();
 
 const cheerio = require("cheerio");
-const axios = require("axios");
 const pageURL = "https://www.atm.it/it/Pagine/default.aspx";
 
 app.get('/', async function (req, res) {
