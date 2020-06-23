@@ -4,7 +4,7 @@
   "description": "A simple Node.js service that offers ATM Milano Metro status in JSON",
   "main": "app.js",
   "scripts": {
-    "start": "app.js"
+    "start": "cd src && node app.js"
   },
   "repository": {
     "type": "git",

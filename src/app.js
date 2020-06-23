@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 
 const cheerio = require("cheerio");
+const axios = require("axios");
 const pageURL = "https://www.atm.it/it/Pagine/default.aspx";
 
 app.get('/', async function (req, res) {
@@ -31,7 +32,11 @@ const getResults = async () => {
     //Fetch lines directions
     const directions = [];
     $(".StatusLinee_DirezioneScritta").each(function(i, elem) {
-        directions[i] = $(this).text().trim();
+        directions[i] = $(this).text().trim()
+                        .toLowerCase()
+                        .split(' ')
+                        .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
+                        .join(' ');
     });
 
     //Fetch lines names and use the rowspan attribute (half) to distinguish each destination by line
