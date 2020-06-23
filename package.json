@@ -4,7 +4,8 @@
   "description": "A simple Node.js service that offers ATM Milano Metro status in JSON",
   "main": "app.js",
   "scripts": {
-    "start": "cd src && node app.js"
+    "start": "node ./src/app.js",
+    "dev": "nodemon ./src/app.js"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,7 @@
   "dependencies": {
     "axios": "^0.19.2",
     "cheerio": "^1.0.0-rc.3",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "nodemon": "^2.0.4"
   }
 }
