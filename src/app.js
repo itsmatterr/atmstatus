@@ -10,7 +10,10 @@ const scrapeData = function ($) {
   // Fetch lines status
   const status = [];
   $('.StatusLinee_StatoScritta').each(function (i) {
-    status[i] = $(this).text().trim();
+    const tmp = $(this).text().trim();
+    if (tmp === 'Regolare') status[i] = 'Green';
+    else if (tmp === 'Rallentata') status[i] = 'Yellow';
+    else status[i] = 'Red';
   });
 
   // Fetch lines directions
