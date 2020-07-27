@@ -5,15 +5,8 @@ const axios = require('axios');
 const app = express();
 const pageURL = 'https://www.atm.it/it/Pagine/default.aspx';
 
-// Load web page data
-const fetchData = async () => {
-  const result = await axios.get(pageURL);
-  return cheerio.load(result.data);
-};
-
-const getResults = async () => {
-  const $ = await fetchData();
-
+// Scrape data that has been read from server
+const scrapeData = function ($) {
   // Fetch lines status
   const status = [];
   $('.StatusLinee_StatoScritta').each(function (i) {
@@ -44,18 +37,32 @@ const getResults = async () => {
     lines = lines.concat(Array(linesCount[i]).fill(linesNames[i]));
   }
 
-  // Create an array of objects containing the final data that has to be returned
-  const result = [];
+  // Create the final json response
+  const result = { data: { lines: [] } };
+  const arr = [];
   for (let i = 0; i < status.length; i++) {
     const obj = {};
     obj.line = lines[i];
     obj.direction = directions[i];
     obj.status = status[i];
-    result.push(obj);
+    arr.push(obj);
   }
+  result.data.lines = arr;
 
-  console.log(result);
+  console.log(JSON.stringify(result, null, 2));
   return result;
+};
+
+// Load the web page
+const getResults = async () => {
+  const res = await axios.get(pageURL)
+    .then((result) => cheerio.load(result.data))
+    .then(($) => scrapeData($))
+    .catch(() => {
+      console.log('Failed to connect.');
+      return { error: 'Failed to connect' };
+    });
+  return res;
 };
 
 app.get('/', async (req, res) => {
