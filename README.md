@@ -27,7 +27,7 @@ A simple Node.js service that offers Milan Metro status in JSON.
 
 ## Install
 Clone the repo and install the dependencies.
-
+```
 git clone https://github.com/itsmatterr/atmstatus.git
 ```
 ```
