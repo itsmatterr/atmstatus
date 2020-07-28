@@ -51,8 +51,6 @@ const scrapeData = function ($) {
     arr.push(obj);
   }
   result.data.lines = arr;
-
-  console.log(JSON.stringify(result, null, 2));
   return result;
 };
 
@@ -71,6 +69,7 @@ const getResults = async () => {
 app.get('/', async (req, res) => {
   const status = await getResults();
   res.json(status);
+  console.dir(status, { depth: null, colors: true });
 });
 
 app.listen(3000, () => {
