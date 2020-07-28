@@ -7,23 +7,23 @@ A simple Node.js service that offers Milan Metro status in JSON.
 * Node.js 14.x
 
 ## Response format
-**Successful requests** return `data` in the following format:
-```
-{
-  data: {
-    lines: [
-      { line: 'M1', direction: 'Rho Fieramilano', status: 'Green' },
-      ...
-    ]
+- **Successful requests** return `data` in the following format:
+  ```
+  {
+    data: {
+      lines: [
+        { line: 'M1', direction: 'Rho Fieramilano', status: 'Green' },
+        ...
+      ]
+    }
   }
-}
-```
-**Note**: the field `status` can have three different values (Green, Yellow, Red) based on the line status.
-
-**Failed requests** return `error` in the following format:
-```
-{ error: 'Failed to connect' }
-```
+  ```
+  *Note*: the field `status` can have three different values (Green, Yellow, Red) based on the line status.
+  
+- **Failed requests** return `error` in the following format:
+  ```
+  { error: 'Failed to connect' }
+  ```
 
 ## Install
 Clone the repo and install the dependencies.
