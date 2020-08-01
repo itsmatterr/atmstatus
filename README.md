@@ -8,7 +8,7 @@ A simple Node.js service that offers Milan Metro status in JSON.
 
 ## Response format
 - **Successful requests** return `data` in the following format:
-  ```json
+  ```javascript
   {
     data: {
       lines: [
@@ -21,7 +21,7 @@ A simple Node.js service that offers Milan Metro status in JSON.
   *Note*: the field `status` can have three different values (Green, Yellow, Red) based on the line status.
   
 - **Failed requests** return `error` in the following format:
-  ```json
+  ```javascript
   { error: 'Failed to connect' }
   ```
 
