@@ -34,7 +34,7 @@ git clone https://github.com/itsmatterr/atmstatus.git
 npm install
 ```
 ## Run the service
-To start the express server, run the following
+To start the Express server, run the following
 ```
 npm run start
 ```
