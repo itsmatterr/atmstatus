@@ -5,6 +5,7 @@ A simple Node.js service that offers Milan Metro status in JSON.
 
 ## Built with
 * Node.js 14.x
+* Express 4.x
 
 ## Response format
 - **Successful requests** return `data` in the following format:
