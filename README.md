@@ -18,7 +18,7 @@ A simple Node.js service that offers Milan Metro status in JSON.
     }
   }
   ```
-  *Note*: the field `status` can have three different values (Green, Yellow, Red) based on the line status.
+  *Note*: the field `status` can have three different values (Green ✅️, Yellow ⚠️, Red ⛔️) based on the line status.
   
 - **Failed requests** return `error` in the following format:
   ```javascript
